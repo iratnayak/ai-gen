@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { UserButton, SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
+import Link from "next/link";
 
 export default function Home() {
   return(
@@ -14,9 +15,14 @@ export default function Home() {
       </SignedOut>
 
       <SignedIn>
-      <div className="flex flex-col items-center gap-4">
-            <p className="text-lg font-semibold">Welcome back!</p>
-            <UserButton /> 
+        <div className="flex flex-col items-center gap-4">
+            <Link href="/dashboard">
+                <Button>Go to Dashboard! </Button>
+            </Link>
+            
+            <div className="mt-4">
+                <UserButton /> 
+            </div>
         </div>
       </SignedIn>
       </div>
