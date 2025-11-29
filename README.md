@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 AI-Gen - AI Powered Content Generator
 
-## Getting Started
+A modern SaaS application that leverages **Google Gemini AI** to generate creative content (blog posts, social media captions, etc.) based on user prompts. Built with **Next.js 14**, **TypeScript**, and **Clerk Authentication**.
 
-First, run the development server:
+🔗 **Live Demo:** [https://ai-gen-your-link.vercel.app](https://ai-gen-your-link.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Key Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **🤖 AI Integration:** Powered by **Google Gemini API** for high-quality text generation.
+- **🔐 Secure Authentication:** Seamless login/signup using **Clerk** (Google & Email).
+- **🛡️ Protected Routes:** Middleware protection to ensure only authenticated users access the dashboard.
+- **⚡ Real-time Generation:** Instant content creation with loading states and error handling.
+- **🎨 Modern UI:** Clean and responsive interface built with **shadcn/ui** and **Tailwind CSS**.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript
+- **AI Model:** Google Gemini 1.5 Flash / Pro
+- **Authentication:** Clerk
+- **Styling:** Tailwind CSS, shadcn/ui
+- **Deployment:** Vercel
 
-## Learn More
+## 🚀 Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/iratnayak/ai-gen.git](https://github.com/iratnayak/ai-gen.git)
+    cd ai-gen
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3.  **Set up Environment Variables (.env.local):**
+    ```env
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=...
+    CLERK_SECRET_KEY=...
+    GEMINI_API_KEY=...
+    NEXT_PUBLIC_CLERK_SIGN_IN_FORCE_REDIRECT_URL=/dashboard
+    NEXT_PUBLIC_CLERK_SIGN_UP_FORCE_REDIRECT_URL=/dashboard
+    ```
 
-## Deploy on Vercel
+4.  **Run the app:**
+    ```bash
+    npm run dev
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Developed by **Isuru Rathnayake**
