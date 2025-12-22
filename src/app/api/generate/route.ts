@@ -3,6 +3,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // Getting prompt from the frontend to the backend then send it to google, and send the response back to the frontend 
 export async function POST(req: Request) {
+  console.log("LOG: API called with Gemini 2.0 Flash");
   try {
     const body = await req.json();
     const { prompt } = body;
