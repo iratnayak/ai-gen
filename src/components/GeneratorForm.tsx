@@ -1,4 +1,4 @@
-"use client";
+"use client"; // Because there is a button click and useState)
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 export default function GeneratorForm() {
     const [prompt, setPrompt] = useState("");
     const [result, setResult] = useState("");
+    // I used to loading state, Keep the button disabled until the generate AI ​​answers.
     const [loading, setLoading] = useState(false);
 
     const handleGenerate = async () => {

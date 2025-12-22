@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
+// Getting prompt from the frontend to the backend then send it to google, and send the response back to the frontend 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -12,7 +13,7 @@ export async function POST(req: Request) {
 
    
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const result = await model.generateContent(`Write a creative blog post about: ${prompt}`);
     const response = await result.response;

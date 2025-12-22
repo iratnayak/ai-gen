@@ -1,5 +1,6 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
+// This section we decide which files are public or private
 export default clerkMiddleware();
 
 export const config = {
