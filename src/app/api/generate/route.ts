@@ -3,7 +3,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // Getting prompt from the frontend to the backend then send it to google, and send the response back to the frontend 
 export async function POST(req: Request) {
-  console.log("Running Model: gemini-1.5-flash");
+  console.log("Running Model: gemini-2.0-flash");
   try {
     const body = await req.json();
     const { prompt } = body;
@@ -14,8 +14,7 @@ export async function POST(req: Request) {
 
    
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
-    const list = await genAI.listModels();
-    console.log("MY_MODELS:", list.models.map(m => m.name));
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
     const result = await model.generateContent(`Write a creative blog post about: ${prompt}`);
     const response = await result.response;
