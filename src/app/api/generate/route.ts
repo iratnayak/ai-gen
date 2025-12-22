@@ -14,7 +14,8 @@ export async function POST(req: Request) {
 
    
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const list = await genAI.listModels();
+    console.log("MY_MODELS:", list.models.map(m => m.name));
 
     const result = await model.generateContent(`Write a creative blog post about: ${prompt}`);
     const response = await result.response;
