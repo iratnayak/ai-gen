@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import DeleteButton from "@/components/DeleteButton";
 
+export const dynamic = "force-dynamic";
+
 interface BlogPageProps {
   params: Promise<{ id: string }>;
 }
