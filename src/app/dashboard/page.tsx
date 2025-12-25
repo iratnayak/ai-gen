@@ -5,6 +5,8 @@ import GeneratorForm from "@/components/GeneratorForm";
 import Link from "next/link";
 import prisma from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function Dashboard() {
   // Suggested user
   const user = await currentUser();
