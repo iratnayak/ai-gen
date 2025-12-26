@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
-import createBlogAction from "@/app/actions/blogActions";
+import { createBlogAction } from "@/app/actions/blogActions";
 
 export default function GeneratorForm() {
   const [prompt, setPrompt] = useState("");

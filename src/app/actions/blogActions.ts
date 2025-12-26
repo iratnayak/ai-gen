@@ -1,13 +1,13 @@
 "use server";
 
-import prisma from "@/lib/db"; // Db connection
-import { auth } from "@clerk/nextjs/server"; // Clerk login
+import prisma from "@/lib/db"; 
+import { auth } from "@clerk/nextjs/server"; 
 import { revalidatePath } from "next/cache";
 
-// Create Bolg Action
-export default async function createBlogAction(title: string, content: string) {
+// Create Blog Action
+export async function createBlogAction(title: string, content: string) {
   try {
-    const { userId } = await auth(); // Checked Loged user
+    const { userId } = await auth(); 
 
     if (!userId) {
       throw new Error("User not authenticated");
@@ -21,7 +21,6 @@ export default async function createBlogAction(title: string, content: string) {
       },
     });
 
-    // Refersh the both pages that's why new data display
     revalidatePath("/dashboard");
     revalidatePath("/");
 
@@ -32,30 +31,26 @@ export default async function createBlogAction(title: string, content: string) {
   }
 }
 
-// Create Delete Action
+// Delete Blog Action
 export async function deleteBlogAction(blogId: string) {
   try {
-    const { userId } = await auth();
+    const { userId } = await auth(); // Security check
 
     if (!userId) {
-      throw new Error("Unauthorized");
+      return { error: "Not authorized" };
     }
 
-    // Delete from databse
-    await prisma.blog.delete({
-      where: {
+    await prisma.blog.delete({ 
+      where: { 
         id: blogId,
-        userId: userId, // Only can delete own blogs
+        userId: userId 
       },
     });
 
-    // Refersh the both pages that's why clear delete data
     revalidatePath("/dashboard");
-    revalidatePath("/");
-
-    return { success: true };
+    return { success: true }; 
   } catch (error) {
     console.error("Delete Error:", error);
-    return { success: false, error: "Failed to delete" };
+    return { error: "Failed deleting blog" };
   }
 }
